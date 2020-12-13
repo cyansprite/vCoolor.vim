@@ -207,6 +207,8 @@ function s:ExecPicker(hexColor) " {{{1
 				let l:comm = 'yad --title="vCoolor" --color --on-top --skip-taskbar --center --init-color="' . a:hexColor . '"' . s:blackHole
 			elseif (executable('zenity'))
 				let l:comm = 'zenity --title="vCoolor" --color-selection --color="' . a:hexColor . '"' . s:blackHole
+			elseif (executable(s:path.'/../pickers/win32/cpicker.exe'))
+				let l:comm = s:path . '/../pickers/win32/cpicker.exe ' . a:hexColor . s:blackHole
 			else
 				echohl ErrorMsg
 				echomsg 'No yad or zenity installed'
